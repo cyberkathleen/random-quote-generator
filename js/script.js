@@ -11,19 +11,23 @@ Project 1 - A Random Quote Generator
  * @property {string} source - The person or character who said it.
  * @property {string} citation - A reference to the source of the quote (i.e. book, movie, song, ...)
  * @property {number} year - The year the quote originated.
+ * @property {string} hashtag - A hashtag to categorize the quote.
 ***/
 const quotes = [
   {
     quote: "If you really want to do something, you'll find a way. If you don't, you'll find an excuse",
-    source: "Jim Rohn"
+    source: "Jim Rohn",
+    hasthag: "#motivation"
   },
   {
     quote: "Success is nothing more than a few simple disciplines, practiced every day",
-    source: "Jim Rohn"
+    source: "Jim Rohn",
+    hasthag: "#success"
   },
   {
     quote: "If you focus on success, you'll have stress. But if you pursue excellence, success will be guaranteed.",
-    source: "Deepak Chopra"
+    source: "Deepak Chopra",
+    hasthag: "#success"
   },
   {
     quote: "The dawn right before the sun rises is the darkest.",
@@ -47,19 +51,23 @@ const quotes = [
     quote: "No amount of money ever bought a second of time.",
     source: "Tony Stark",
     citation: "Avengers: Endgame",
-    year: 2019
+    year: 2019,
+    hasthag: "#money"
   },
   {
     quote: "Believe you can and you're halfway there.",
-    source: "Theodore Roosevelt"
+    source: "Theodore Roosevelt",
+    hasthag: "#courage"
   },
   {
     quote: "Those who dare to fail miserably can achieve greatly.",
-    source: "John F. Kennedy"
+    source: "John F. Kennedy",
+    hasthag: "#courage"
   },
   {
     quote: "Courage isn't having the strength to go on - it is going on when you don't have strength.",
-    source: "Napoleon"
+    source: "Napoleon",
+    hasthag: "#courage"
   },
   {
     quote: "Through discipline comes freedom.",
@@ -75,15 +83,18 @@ const quotes = [
   },
   {
     quote: "There are always flowers for those who want to see them.",
-    source: "Henri Matisse"
+    source: "Henri Matisse",
+    hasthag: "#beautiful"
   },
   {
     quote: "Everything you can imagine is real.",
-    source: "Pablo Picasso"
+    source: "Pablo Picasso",
+    hasthag: "#life"
   },
   {
     quote: "Life is 10% what happens to you and 90% how you react to it.",
-    source: "Charles R. Swindoll"
+    source: "Charles R. Swindoll",
+    hasthag: "#positive"
   },
   {
     quote: "All the world's a stage.",
@@ -132,6 +143,9 @@ function printQuote() {
   }
   if (randomQuoteObject.year) {
     html += `<span class="year"> ${randomQuoteObject.year} </span>`;
+  }
+  if (randomQuoteObject.hasthag) {
+    html += `<span class="hashtag"> ${randomQuoteObject.hasthag} </span>`;
   }
 
   html += `</p>`;
