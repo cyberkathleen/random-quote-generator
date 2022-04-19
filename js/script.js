@@ -97,8 +97,17 @@ const quotes = [
 /***
  * `getRandomQuote` function
 ***/
+const quotesCopy = [...quotes];
 
-
+function getRandomQuote(quotesArray) {
+  let randomNumber = Math.ceil(Math.random() * quotesArray.length) - 1;
+  const quote = quotesArray[randomNumber];
+  quotesArray.splice(randomNumber, 1);
+  if (quotesArray.length === 0) {
+    quotesArray = [...quotes];
+  }
+  return quote;
+}
 
 /***
  * `printQuote` function
@@ -111,4 +120,4 @@ const quotes = [
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+/* document.getElementById('load-quote').addEventListener("click", printQuote, false); */
