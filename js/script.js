@@ -1,14 +1,16 @@
 /******************************************
 Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
+Project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ * `quotes` array - An array of objects to store random quotes and their properties
+ * 
+ * @property {string} quote - A quote
+ * @property {string} source - The person or character who said it.
+ * @property {string} citation - A reference to the source of the quote (i.e. book, movie, song, ...)
+ * @property {number} year - The year the quote originated.
 ***/
 const quotes = [
   {
@@ -94,7 +96,10 @@ const quotes = [
 ];
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function - Returns a random quote from a list of quotes.
+ * 
+ * @param {Array} quotesArray - The array storing a list of quotes.
+ * @returns {object} An object containing a quote and its properties.
 ***/
 let quotesCopy = [...quotes];
 
@@ -109,7 +114,11 @@ function getRandomQuote(quotesArray) {
 }
 
 /***
- * `printQuote` function
+ * `printQuote` function - Display a random quote in the browser.
+ * 
+ * 1. Call the getRandomQuote function.
+ * 2. Use the returned quote object to build a string of HTML and quote properties.
+ * 3. Use that string to display a random quote in the browser
 ***/
 function printQuote() {
   let randomQuoteObject = getRandomQuote(quotesCopy);
@@ -131,8 +140,8 @@ function printQuote() {
 }
 
 /***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
+ * click event listener for the load-quote button
+ * Calls the `printQuote` function each time the user clicks the "Show another quote" button
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
