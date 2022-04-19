@@ -159,3 +159,26 @@ function printQuote() {
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+/*** 
+ * `changeColor` function - Updates the background color to a random color.
+ *
+ * 1. Selects the body element.
+ * 2. Generates random RGB values.
+ * 3. Replaces the background-color property with the new RGB values.
+***/
+function changeColor() {
+  let body = document.querySelector('body');
+  const randomRGB = [];
+  for (let i = 0; i < 3; i++) {
+    let randomNumber = Math.ceil(Math.random() * 256) - 1;
+    randomRGB.push(randomNumber);
+  }
+  body.style.backgroundColor = `rgb(${randomRGB.join(', ')})`;
+}
+
+/***
+ * click event listener for the load-quote button
+ * Calls the `changeColor` function each time the user clicks the "Show another quote" button
+***/
+document.getElementById('load-quote').addEventListener("click", changeColor, false);
