@@ -182,3 +182,10 @@ function changeColor() {
  * Calls the `changeColor` function each time the user clicks the "Show another quote" button
 ***/
 document.getElementById('load-quote').addEventListener("click", changeColor, false);
+
+/*** 
+ * `setInterval` function to call the `printQuote` function every 11 secs.
+ * `setInterval` function to call the `changeColor` function every 11 secs.
+***/
+setInterval(printQuote, 11000);
+setInterval(changeColor, 11000);
