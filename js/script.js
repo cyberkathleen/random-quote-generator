@@ -93,31 +93,46 @@ const quotes = [
   }
 ];
 
-
 /***
  * `getRandomQuote` function
 ***/
-const quotesCopy = [...quotes];
+let quotesCopy = [...quotes];
 
 function getRandomQuote(quotesArray) {
   let randomNumber = Math.ceil(Math.random() * quotesArray.length) - 1;
-  const quote = quotesArray[randomNumber];
+  const fullQuote = quotesArray[randomNumber];
   quotesArray.splice(randomNumber, 1);
-  if (quotesArray.length === 0) {
-    quotesArray = [...quotes];
+  if (quotesArray.length < 1) {
+    quotesCopy = [...quotes];
   }
-  return quote;
+  return fullQuote;
 }
 
 /***
  * `printQuote` function
 ***/
+function printQuote() {
+  let randomQuoteObject = getRandomQuote(quotesCopy);
+  let html = `
+    <p class="quote"> ${randomQuoteObject.quote} </p>
+    <p class="source"> ${randomQuoteObject.source} 
+  `;
 
+  if (randomQuoteObject.citation) {
+    html += `<span class="citation"> ${randomQuoteObject.citation} </span>`;
+  }
+  if (randomQuoteObject.year) {
+    html += `<span class="year"> ${randomQuoteObject.year} </span>`;
+  }
 
+  html += `</p>`;
+
+  document.getElementById('quote-box').innerHTML = html;
+}
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-/* document.getElementById('load-quote').addEventListener("click", printQuote, false); */
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
