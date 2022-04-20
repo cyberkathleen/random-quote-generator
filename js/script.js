@@ -17,17 +17,17 @@ const quotes = [
   {
     quote: "If you really want to do something, you'll find a way. If you don't, you'll find an excuse",
     source: "Jim Rohn",
-    hasthag: "#motivation"
+    hashtag: "#motivation"
   },
   {
     quote: "Success is nothing more than a few simple disciplines, practiced every day",
     source: "Jim Rohn",
-    hasthag: "#success"
+    hashtag: "#success"
   },
   {
     quote: "If you focus on success, you'll have stress. But if you pursue excellence, success will be guaranteed.",
     source: "Deepak Chopra",
-    hasthag: "#success"
+    hashtag: "#success"
   },
   {
     quote: "The dawn right before the sun rises is the darkest.",
@@ -52,22 +52,22 @@ const quotes = [
     source: "Tony Stark",
     citation: "Avengers: Endgame",
     year: 2019,
-    hasthag: "#money"
+    hashtag: "#money"
   },
   {
     quote: "Believe you can and you're halfway there.",
     source: "Theodore Roosevelt",
-    hasthag: "#courage"
+    hashtag: "#courage"
   },
   {
     quote: "Those who dare to fail miserably can achieve greatly.",
     source: "John F. Kennedy",
-    hasthag: "#courage"
+    hashtag: "#courage"
   },
   {
     quote: "Courage isn't having the strength to go on - it is going on when you don't have strength.",
     source: "Napoleon",
-    hasthag: "#courage"
+    hashtag: "#courage"
   },
   {
     quote: "Through discipline comes freedom.",
@@ -84,17 +84,17 @@ const quotes = [
   {
     quote: "There are always flowers for those who want to see them.",
     source: "Henri Matisse",
-    hasthag: "#beautiful"
+    hashtag: "#beautiful"
   },
   {
     quote: "Everything you can imagine is real.",
     source: "Pablo Picasso",
-    hasthag: "#life"
+    hashtag: "#life"
   },
   {
     quote: "Life is 10% what happens to you and 90% how you react to it.",
     source: "Charles R. Swindoll",
-    hasthag: "#positive"
+    hashtag: "#positive"
   },
   {
     quote: "All the world's a stage.",
@@ -144,8 +144,8 @@ function printQuote() {
   if (randomQuoteObject.year) {
     html += `<span class="year"> ${randomQuoteObject.year} </span>`;
   }
-  if (randomQuoteObject.hasthag) {
-    html += `<span class="hashtag"> ${randomQuoteObject.hasthag} </span>`;
+  if (randomQuoteObject.hashtag) {
+    html += `<span class="hashtag"> ${randomQuoteObject.hashtag} </span>`;
   }
 
   html += `</p>`;
@@ -161,13 +161,13 @@ function printQuote() {
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 /*** 
- * `changeColor` function - Updates the background color to a random color.
+ * `randomColor` function - Updates the background color to a random color.
  *
  * 1. Selects the body element.
  * 2. Generates random RGB values.
  * 3. Replaces the background-color property with the new RGB values.
 ***/
-function changeColor() {
+function randomColor() {
   let body = document.querySelector('body');
   const randomRGB = [];
   for (let i = 0; i < 3; i++) {
@@ -179,13 +179,13 @@ function changeColor() {
 
 /***
  * click event listener for the load-quote button
- * Calls the `changeColor` function each time the user clicks the "Show another quote" button
+ * Calls the `randomColor` function each time the user clicks the "Show another quote" button
 ***/
-document.getElementById('load-quote').addEventListener("click", changeColor, false);
+document.getElementById('load-quote').addEventListener("click", randomColor, false);
 
 /*** 
  * `setInterval` function to call the `printQuote` function every 11 secs.
- * `setInterval` function to call the `changeColor` function every 11 secs.
+ * `setInterval` function to call the `randomColor` function every 11 secs.
 ***/
 setInterval(printQuote, 11000);
-setInterval(changeColor, 11000);
+setInterval(randomColor, 11000);
